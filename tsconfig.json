@@ -1,14 +1,27 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "CommonJS",         // Use CommonJS em vez de NodeNext
-    "moduleResolution": "node",    // Isso remove a obrigatoriedade do .js nas importações
-    "outDir": "./dist",            // Onde o JS convertido vai morar
-    "rootDir": "./src",
-    "strict": false,               // Se você quiser que o TS seja menos rigoroso com erros simples
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "lib": [
+     "ES2020"
+    ],
+    "rootDir": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

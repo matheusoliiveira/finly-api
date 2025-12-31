@@ -1,5 +1,5 @@
 import type { FastifyInstance } from "fastify";
-import { getCategories } from "../controllers/category.controller";
+import { getCategories } from "../controllers/transactions/category.controller";
 import { authMiddleware } from "../middlewares/auth.middlewares";
 
 const categoryRoutes = async (fastify: FastifyInstance): Promise<void> => {

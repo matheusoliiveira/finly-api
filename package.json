@@ -2,8 +2,8 @@
   "name": "api-devbills",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
-  "type": "module",
+  "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",

@@ -1,16 +1,17 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import type { GetTransactionsSummaryQuery } from "../../schemas/transaction.schema.js";
+
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import prisma from "../../config/prisma.js";
-import type { CategorySummary } from "../../types/category.types.js";
+import prisma from "../../config/prisma";
+import type { CategorySummary } from "../../types/category.types";
 import { TransactionType } from "@prisma/client";
-import type { TransactionSummary } from "../../types/transactions.types.js";
+import type { TransactionSummary } from "../../types/transactions.types";
+import type { GetTransactionsQuery } from "../../schemas/transaction.schema";
 
 dayjs.extend(utc);
 
 export const getTransactionsSummary = async (
-  request: FastifyRequest<{ Querystring: GetTransactionsSummaryQuery }>,
+  request: FastifyRequest<{ Querystring: GetTransactionsQuery }>,
   reply: FastifyReply,
 ): Promise<void> => {
   const userId = request.userId;

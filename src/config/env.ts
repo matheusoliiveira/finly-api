@@ -9,7 +9,7 @@ const envSchema = z.object({
   PORT: z.string().transform(Number).default("3333"),
   DATABASE_URL: z.string().min(5, "DATABASE_URL é obrigatório"),
   NODE_ENV: z.enum(["dev", "teste", "prod"], {
-    message: "O Node ENV deve ser dev, teste ou prod",
+    message: "O Node ENV deve ser env, test ou prod",
   }),
 
   // FIREBASE
