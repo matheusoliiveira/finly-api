@@ -3,7 +3,7 @@ import type { FastifyReply, FastifyRequest } from "fastify";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import prisma from "../../config/prisma";
-import type { CategorySummary } from "../../types/category.types";
+import type { CategorySummary } from "../category.type";
 import { TransactionType } from "@prisma/client";
 import type { TransactionSummary } from "../../types/transactions.types";
 import type { GetTransactionsQuery } from "../../schemas/transaction.schema";
@@ -76,7 +76,7 @@ export const getTransactionsSummary = async (
       }
     }
 
-    const expensesByCategory =
+    const expenseCategory =
       totalExpenses > 0
         ? Array.from(groupedExpenses.values())
             .map((entry) => ({
@@ -92,7 +92,7 @@ export const getTransactionsSummary = async (
       totalExpenses: Number(totalExpenses.toFixed(2)),
       totalIncomes: Number(totalIncomes.toFixed(2)),
       balance: Number((totalIncomes - totalExpenses).toFixed(2)),
-      expensesByCategory,
+      expenseCategory,
     };
 
     reply.send(summary);
